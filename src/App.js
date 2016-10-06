@@ -5,14 +5,47 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+      <div>
+        <header>
+          <h1 className="container">Blab Zero</h1>
+        </header>
+
+        <div className="container">
+          <form>
+            <textarea></textarea>
+            <button>Blab</button>
+          </form>
+
+          <section>
+            <article>
+              <img src="img/avatar.png" alt="Lab Zero" />
+              <div>
+                <a href="#">Lab Zero</a>
+                <p className="blab__text">
+                  Blab!
+                </p>
+              </div>
+            </article>
+            <article>
+              <img src="img/avatar.png" alt="Lab Zero" />
+              <div>
+                <a href="#">Lab Zero</a>
+                <p className="blab__text">
+                  Blab!
+                </p>
+              </div>
+            </article>
+            <article>
+              <img src="img/avatar.png" alt="Lab Zero" />
+              <div>
+                <a href="#">Lab Zero</a>
+                <p className="blab__text">
+                  Blab!
+                </p>
+              </div>
+            </article>
+          </section>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
       </div>
     );
   }
