@@ -45,8 +45,8 @@ class App extends Component {
           </form>
 
           <section>
-            {blabs.map(blab => (
-              <article>
+            {blabs.map((blab, i) => (
+              <article key={`blab_${i}`}>
                 <img src={authors[blab.author].avatar} alt={authors[blab.author].username} />
                 <div>
                   <a href="#">{authors[blab.author].username}</a>
