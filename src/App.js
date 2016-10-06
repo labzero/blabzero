@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 
 class App extends Component {
+  static characterLimit = 140;
+
   constructor(props) {
     super(props);
 
@@ -28,12 +30,25 @@ class App extends Component {
           id: 0,
           text: 'Blab one!'
         }
-      ]
+      ],
+      textareaValue: ''
     };
   }
 
+  handleChange = event => {
+    this.setState({
+      textareaValue: event.target.value
+    });
+  }
+
+  isFormValid = () => {
+    const { textareaValue } = this.state;
+
+    return textareaValue.length !== 0 && textareaValue.length <= App.characterLimit;
+  }
+
   render() {
-    const { authors, blabs } = this.state;
+    const { authors, blabs, textareaValue } = this.state;
 
     return (
       <div>
@@ -43,8 +58,11 @@ class App extends Component {
 
         <div className="container">
           <form>
-            <textarea></textarea>
-            <button>Blab</button>
+            <textarea onChange={this.handleChange} value={textareaValue} />
+            <div>
+              {App.characterLimit - textareaValue.length}
+              <button disabled={this.isFormValid() ? '' : 'disabled'}>Blab</button>
+            </div>
           </form>
 
           <section>

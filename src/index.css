@@ -127,11 +127,12 @@ form button {
     border: 0;
     border-radius: 5px;
     color: #fff;
+    margin-left: .5em;
     outline: none;
     padding: 5px 10px;
 }
 
-form button:hover {
+form button:not(:disabled):hover {
     background: #898989;
 }
 
