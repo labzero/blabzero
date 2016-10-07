@@ -14,6 +14,7 @@ class App extends Component {
           avatar: 'img/avatar.png'
         }
       },
+      currentAuthor: 'labzero',
       blabs: [
         {
           author: 'labzero',
@@ -41,6 +42,20 @@ class App extends Component {
     });
   }
 
+  handleSubmit = event => {
+    event.preventDefault();
+    this.setState(prevState => ({
+      blabs: [
+        {
+          author: prevState.currentAuthor,
+          text: prevState.textareaValue
+        },
+        ...prevState.blabs
+      ],
+      textareaValue: ''
+    }));
+  }
+
   isFormValid = () => {
     const { textareaValue } = this.state;
 
@@ -57,7 +72,7 @@ class App extends Component {
         </header>
 
         <div className="container">
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <textarea onChange={this.handleChange} value={textareaValue} />
             <div>
               {App.characterLimit - textareaValue.length}
