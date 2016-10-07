@@ -48,6 +48,7 @@ class App extends Component {
       blabs: [
         {
           author: prevState.currentAuthor,
+          id: prevState.blabs[0].id + 1,
           text: prevState.textareaValue
         },
         ...prevState.blabs
