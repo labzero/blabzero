@@ -15,14 +15,17 @@ class App extends Component {
       blabs: [
         {
           author: 'labzero',
+          id: 2,
           text: 'Blab three!'
         },
         {
           author: 'labzero',
+          id: 1,
           text: 'Blab two!'
         },
         {
           author: 'labzero',
+          id: 0,
           text: 'Blab one!'
         }
       ]
@@ -45,8 +48,8 @@ class App extends Component {
           </form>
 
           <section>
-            {blabs.map((blab, i) => (
-              <article key={`blab_${i}`}>
+            {blabs.map((blab) => (
+              <article key={`blab_${blab.id}`}>
                 <img src={authors[blab.author].avatar} alt={authors[blab.author].username} />
                 <div>
                   <a href="#">{authors[blab.author].username}</a>
