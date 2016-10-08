@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 
 class Form extends Component {
   static propTypes = {
@@ -50,4 +51,11 @@ class Form extends Component {
   }
 }
 
-export default Form;
+const mapDispatchToProps = dispatch => ({
+  addBlab: text => dispatch({
+    type: 'ADD_BLAB',
+    text
+  })
+})
+
+export default connect(null, mapDispatchToProps)(Form);

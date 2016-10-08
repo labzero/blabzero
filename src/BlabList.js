@@ -1,23 +1,27 @@
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 import Blab from './Blab';
 
 class BlabList extends Component {
   static propTypes = {
-    authors: PropTypes.object.isRequired,
     blabs: PropTypes.array.isRequired
   }
 
   render() {
-    const { authors, blabs } = this.props;
+    const { blabs } = this.props;
 
     return (
       <section>
         {blabs.map(blab =>
-          <Blab key={`blab_${blab.id}`} author={authors[blab.author]} text={blab.text} />
+          <Blab key={`blab_${blab.id}`} id={blab.id} />
         )}
       </section>
     );
   }
 }
 
-export default BlabList;
+const mapStateToProps = state => ({
+  blabs: state.blabs,
+});
+
+export default connect(mapStateToProps)(BlabList);

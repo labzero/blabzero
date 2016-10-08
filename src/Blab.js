@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 
 class Blab extends Component {
   static propTypes = {
@@ -23,4 +24,12 @@ class Blab extends Component {
   }
 }
 
-export default Blab;
+const mapStateToProps = (state, ownProps) => {
+  const blab = state.blabs.find(blab => blab.id === ownProps.id);
+  return {
+    author: state.authors[blab.author],
+    text: blab.text
+  };
+};
+
+export default connect(mapStateToProps)(Blab);
