@@ -4,16 +4,16 @@ import Blab from './Blab';
 
 class BlabList extends Component {
   static propTypes = {
-    blabs: PropTypes.array.isRequired
+    blabIds: PropTypes.array.isRequired
   }
 
   render() {
-    const { blabs } = this.props;
+    const { blabIds } = this.props;
 
     return (
       <section>
-        {blabs.map(blab =>
-          <Blab key={`blab_${blab.id}`} id={blab.id} />
+        {blabIds.map(id =>
+          <Blab key={`blab_${id}`} id={id} />
         )}
       </section>
     );
@@ -21,7 +21,7 @@ class BlabList extends Component {
 }
 
 const mapStateToProps = state => ({
-  blabs: state.blabs,
+  blabIds: state.blabs.result,
 });
 
 export default connect(mapStateToProps)(BlabList);

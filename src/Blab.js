@@ -25,7 +25,7 @@ class Blab extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const blab = state.blabs.find(blab => blab.id === ownProps.id);
+  const blab = state.blabs.entities.blabs[ownProps.id];
   return {
     author: state.authors[blab.author],
     text: blab.text
